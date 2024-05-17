@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const stuffRoutes = require('./routes/stuff');
+const userRoutes = require('./routes/user');
 
-  mongoose.connect('mongodb+srv://ysi:<Password>@ysinodejscluster.axeiczw.mongodb.net/?retryWrites=true&w=majority&appName=ysiNodeJsCLuster',
+  mongoose.connect('mongodb+srv://ysi:<PASSWORD>@ysinodejscluster.axeiczw.mongodb.net/?retryWrites=true&w=majority&appName=ysiNodeJsCLuster',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -21,5 +22,6 @@ app.use((req, res, next) => {
   });
 
   app.use('/api/stuff',stuffRoutes);
+  app.use('/api/auth', userRoutes);
 
 module.exports = app;
