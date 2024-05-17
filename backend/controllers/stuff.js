@@ -5,8 +5,8 @@ exports.createThing = (req, res, next) =>{
         title: req.body.title,
         description: req.body.description,
         imageUrl: req.body.imageUrl,
+        price: req.body.price,
         userId: req.body.userId
-
     });
     thing.save().then(
         ()=> {
@@ -15,6 +15,7 @@ exports.createThing = (req, res, next) =>{
             })
         }).catch(
         (error) => {
+            console.log(error);
             res.status(400).json({error})
         }
     );
@@ -26,6 +27,7 @@ exports.getOneThing = (req, res, next)=> {
             res.status(200).json(thing);
         }).catch(
         (error)=> {
+            
             res.status(400).json({error})
         }
     );
@@ -38,6 +40,7 @@ exports.modifyingThing = (req, res, next)=>{
         title: req.body.title,
         description: req.body.description,
         imageUrl: req.body.imageUrl,
+        price: req.body.price,
         userId: req.body.userId
 
     })
