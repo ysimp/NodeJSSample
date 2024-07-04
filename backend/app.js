@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const stuffRoutes = require('./routes/stuff');
 const userRoutes = require('./routes/user');
 
-  mongoose.connect('mongodb+srv://ysi:<PASSWORD>@ysinodejscluster.axeiczw.mongodb.net/?retryWrites=true&w=majority&appName=ysiNodeJsCLuster',
+  mongoose.connect('mongodb+srv://ysi:<PassWord>@ysinodejscluster.axeiczw.mongodb.net/?retryWrites=true&w=majority&appName=ysiNodeJsCLuster',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+  .catch((error) => {
+    console.log(error);
+    console.log('Connexion à MongoDB échouée !')});
 
 const app = express();
 
