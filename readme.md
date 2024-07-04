@@ -4,7 +4,9 @@ Ce projet s'inspire du cours : https://openclassrooms.com/fr/courses/6390246-pas
 - Mettre à jour le mot de passe de la base de donnée MongoDB dans le fichier app.js
 mongoose.connect('mongodb+srv://ysi:<PASSWORD>@ysinodejscluster.axeiczw.mongodb.net/?retryWrites=true&w=majority&appName=ysiNodeJsCLuster',
   { useNewUrlParser: true,
-    useUnifiedTopology: true })
+    useUnifiedTopology: true });
+
+Ou créer une une base de données mongoDB et utiliser ses propres credentiels
 
 ## Lancer le backend
 1. cd backend 
