@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const stuffRoutes = require('./routes/stuff');
 const userRoutes = require('./routes/user');
 
-  mongoose.connect('mongodb+srv://ysi:<PassWord>@ysinodejscluster.axeiczw.mongodb.net/?retryWrites=true&w=majority&appName=ysiNodeJsCLuster',
+  mongoose.connect('mongodb+srv://ysi:PASSWORD@ysinodejscluster.axeiczw.mongodb.net/?retryWrites=true&w=majority&appName=ysiNodeJsCLuster',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -12,6 +12,8 @@ const userRoutes = require('./routes/user');
     console.log('Connexion à MongoDB échouée !')});
 
 const app = express();
+
+const path = require('path');
 
 // to get all request with Content-Type  application/json, and put it in req.body
 app.use(express.json());
@@ -25,5 +27,6 @@ app.use((req, res, next) => {
 
   app.use('/api/stuff',stuffRoutes);
   app.use('/api/auth', userRoutes);
+  app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
